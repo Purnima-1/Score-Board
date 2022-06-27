@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 export const actionSlice = createSlice({
 name: "action",
 //initialState: {value:teamData},
+//initialState: {value: []},
 initialState: {value: [{id:null,team:'',score:'',action:''}]},
 reducers: {
  addTeam: (state,action) => {

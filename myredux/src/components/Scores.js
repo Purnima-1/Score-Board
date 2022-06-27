@@ -28,13 +28,10 @@ const Scores = () => {
       {list.map((team) =>{
         return(
           <tr key= {team.id}>
-      <td>{team.id}</td>
+      <td key={team.id}>{team.id}</td>
       <td>{team.team}</td>
       <td>{team.score}</td>
-      <td><Button onClick={()=>{
-                dispatch(deleteTeam({id:team.id}))
-                  }             
-                }>Delete</Button></td>
+      <td><Button onClick={()=>{dispatch(deleteTeam({id:team.id}))}}>Delete</Button></td>
       </tr>
     )})}
     </tbody>

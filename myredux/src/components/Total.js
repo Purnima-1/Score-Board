@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Card, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 
 const Total = () => {

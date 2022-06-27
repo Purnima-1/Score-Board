@@ -5,7 +5,8 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
-  <Navbar.Brand href="/">Volleyball Score Board</Navbar.Brand>
+    
+  <Navbar.Brand href="/"><i className="fa-solid fa-volleyball" style={{marginRight:'4px'}}></i>Volleyball Score Board</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   
   <Nav>
