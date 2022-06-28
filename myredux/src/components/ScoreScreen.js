@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import {Button,Table} from 'react-bootstrap'
 import {increment1,decrement1,increment2,decrement2} from '../reducers/counterReducer'
@@ -9,6 +9,7 @@ const ScoreScreen = () => {
     const counter1 = useSelector((state)=> state.counterR.counter1)
     const counter2 = useSelector((state)=> state.counterR.counter2)
     const dispatch = useDispatch()
+    const teamRef = useRef()
     // const [text,setText] = useState('')
     const [name,setName] = useState('')
     const [name1,setName1] = useState('')
@@ -18,16 +19,17 @@ const ScoreScreen = () => {
    <h1 className='heading my-5'>Tournament</h1>
     <div className ='container my-5 team1'>
    
-    <h2 id='team2'>{name} </h2>     
-   <Button variant='success' onClick={()=>dispatch(increment1())}>Add Scores</Button>
-   <Button variant = 'secondary' onClick={()=>dispatch(decrement1())}>Less</Button>
+    <h2 id='team1'>{name} </h2>     
+   <Button variant='success' onClick={()=>dispatch(increment1()) }  
+  >Add Scores</Button>
+   <Button variant = 'secondary'  onClick={()=>dispatch(decrement1())}>Less</Button>
    
-   <Button disabled={true} id='team1'>Score : {counter1}</Button> 
+   <Button disabled={true} id='team1'>Score : {name? counter1: 0 }</Button> 
    <input type="text" placeholder= 'Add team name' 
    onChange={(event)=> {
       setName(event.target.value) 
-        
-   }}
+           }}
+           ref={teamRef}
    />
    {/* <Button ><i className="fa-solid fa-pen"></i></Button>
    <Button variant = 'secondary'><i className="fa-solid fa-trash"></i></Button> */}
@@ -35,10 +37,11 @@ const ScoreScreen = () => {
    <div className='container my-5 team2'>
  
    <h2 id='team2'>{name1}</h2>
-   <Button variant='success' onClick={()=>dispatch(increment2())}>Add Scores</Button>
-   <Button variant = 'secondary' onClick={()=>dispatch(decrement2())}>Less</Button>
+   <Button variant='success' onClick={()=>dispatch(increment2()) }  
+  >Add Scores</Button>
+   <Button variant = 'secondary' onClick={()=>dispatch(decrement2()) }>Less</Button>
       {/* <Button variant = 'secondary'><i className="fa-solid fa-trash"></i></Button> */}
-   <Button disabled={true} id='team1'>Score : {counter2}</Button> 
+   <Button disabled={true} id='team1'>Score : {name? counter2: 0}</Button> 
    <input type="text" placeholder= 'Add team name' 
    onChange={(event)=> {
       setName1(event.target.value) 
@@ -60,12 +63,12 @@ const ScoreScreen = () => {
           <tr>
             <td>1</td>
             <td>{name}</td>
-            <td>{counter1}</td>
+            <td>{name? counter1: 0}</td>
           </tr>
           <tr>
             <td>2</td>
             <td>{name1}</td>
-            <td>{counter2}</td>
+            <td>{name? counter2:0}</td>
           </tr>
           
         </tbody>
@@ -75,13 +78,12 @@ const ScoreScreen = () => {
         {" "}
         Winner:
         {counter1 > counter2
-          ? "Team 1"
+          ? 'Team 1'
           : counter2 > counter1
           ? 'Team 2'
           : ""}{" "}
       </h2>
-     
-    </div>
+     </div>
     </>
   )
 }

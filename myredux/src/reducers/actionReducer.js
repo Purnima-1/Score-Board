@@ -4,6 +4,7 @@ export const actionSlice = createSlice({
 name: "action",
 //initialState: {value:teamData},
 //initialState: {value: []},
+//initialState: localStorage.getItem("value") ? JSON.parse(localStorage.getItem("value")) : [{id:null,team:'',score:'',action:''}],
 initialState: {value: [{id:null,team:'',score:'',action:''}]},
 reducers: {
  addTeam: (state,action) => {
