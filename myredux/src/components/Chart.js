@@ -3,23 +3,41 @@ import { Doughnut } from 'react-chartjs-2'
 import {CategoryScale} from 'chart.js'; 
 import Chart from 'chart.js/auto';
 Chart.register(CategoryScale);
-
 const Charts = () => {
-  //const data = useSelector((state)=>state.actionR.value )
+  //const list = useSelector((state)=>state.actionR.value)
+ if(localStorage.getItem('value')){
+  const datas = JSON.parse(localStorage.getItem('value')).filter(data=> data.id!==null)
+  
+
+ 
+  const team = datas.map(data=>data.team)
+  const score = datas.map(data=>data.score)
+  
+  
   const data = {
-    labels: ['Red','Blue','Yellow','Green','Orange'],
+         labels: team,
+    
+  
     datasets: [{
-      label:'Scoring Volleyball',
-      data: [3,15,4,19,8],
-      backgroundColor: ['pink','skyBlue','lightyellow','lightgreen','orange']
+      label:'Volleyball Final Scores',
+      data: score,
+      backgroundColor: ['pink','skyBlue','lightyellow','lightgreen','orange','grey']
     }]
   }
+
   return (
     <div style={{maxWidth:'650px',margin:'0 auto'}}>
+    <h1>Doughnut Chart</h1>
+     <Doughnut data = {data}/>
+      </div>
+  )}
+  else {
+   return(
+    <div style={{maxWidth:'650px',margin:'0 auto'}}>
     <h1>Line Chart</h1>
-    <Doughnut data = {data}/>
+    <p>please add team to see charts</p>
     </div>
-  )
+   )
+  }
 }
-
 export default Charts

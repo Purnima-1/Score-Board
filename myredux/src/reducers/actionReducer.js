@@ -14,6 +14,7 @@ reducers: {
  },
  deleteTeam: (state,action)=> {
      state.value = state.value.filter((t)=>t.id !== action.payload.id )
+     localStorage.removeItem('value',JSON.stringify(state.value))
  }
 }
 })
