@@ -5,9 +5,9 @@ const connectDB = async () => {
             useUnifiedTopology: true,
             useNewUrlParser: true,
         })
-        console.log(`MongoDB is connected: ${conn.connection.host}`);
+        console.log(`MongoDB connected: ${conn.connection.host}`);
             } catch(error){
-                console.error(`Error: ${error.message}`)
+                console.error(`Error:Pagal error ${error.message}`)
                 process.exit(1)
             }
 }
