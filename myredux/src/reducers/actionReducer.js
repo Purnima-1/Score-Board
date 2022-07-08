@@ -14,8 +14,8 @@ reducers: {
  },
  deleteTeam: (state,action)=> {
      state.value = state.value.filter((t)=>t.id !== action.payload.id )
-     localStorage.removeItem('value',JSON.stringify(state.value))
- }
+     localStorage.setItem("value", JSON.stringify(state.value));
+     }
 }
 })
 export const{addTeam,deleteTeam} = actionSlice.actions

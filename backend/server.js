@@ -5,6 +5,7 @@ const connectDB = require('./config/db')
 const app = express()
 dotenv.config()
 connectDB()
+app.use(express.urlencoded({ extended: true }));
 app.get('/',(req,res) => {
     res.send('Hello Score Board')
 })

@@ -8,34 +8,28 @@ const Charts = () => {
  if(localStorage.getItem('value')){
   const datas = JSON.parse(localStorage.getItem('value')).filter(data=> data.id!==null)
   
-
- 
-  const team = datas.map(data=>data.team)
+ const team = datas.map(data=>data.team)
   const score = datas.map(data=>data.score)
   
-  
-  const data = {
+    const data = {
          labels: team,
-    
-  
-    datasets: [{
+        datasets: [{
       label:'Volleyball Final Scores',
       data: score,
       backgroundColor: ['pink','skyBlue','lightyellow','lightgreen','orange','grey']
     }]
   }
-
   return (
-    <div style={{maxWidth:'650px',margin:'0 auto'}}>
+    <div style={{maxWidth:'600px',margin:'0 auto'}}>
     <h1>Doughnut Chart</h1>
      <Doughnut data = {data}/>
       </div>
   )}
   else {
    return(
-    <div style={{maxWidth:'650px',margin:'0 auto'}}>
-    <h1>Line Chart</h1>
-    <p>please add team to see charts</p>
+    <div style={{maxWidth:'600px',margin:'0 auto'}}>
+    <h1>Doughnut Chart</h1>
+    <h1>please add team to see charts</h1>
     </div>
    )
   }
