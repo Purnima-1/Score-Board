@@ -5,9 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server",
-    "local": "nodemon backend/server",
     "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend"
+    "dev": "concurrently \"cd backend && npm run server\" \"cd myredux && npm start\" "
   },
   "author": "",
   "license": "ISC",
