@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
-import {Form,Button,FormControl}  from 'react-bootstrap'
+import {Form,Button,FormControl,Container,Row,Col}  from 'react-bootstrap'
 import axios from 'axios'
 const Register = () => {
   const [message,setMessage] = useState('')
-  let url;
+  let url 
   if(window.location.href === "http://localhost:3000/"){
     url = "http://localhost:5000/register"
   }
@@ -11,6 +11,7 @@ const Register = () => {
     e.preventDefault();
     const formData = new FormData(e.target),
     formDataObj = Object.fromEntries(formData.entries())
+    // console.log(formDataObj)
     //const {name,email,password} = formDataObj
    
     axios({
@@ -19,10 +20,9 @@ const Register = () => {
       data:formDataObj,
       headers: { "Content-Type" : "application/json"},
     }).then(function(response){
-      setMessage(response.data.status)
+           setMessage(response.data)
     }).catch(function(err){
-    
-      setMessage(err.response.data.status)
+         setMessage(err.response.data)
     })
   }
   return (
@@ -56,6 +56,7 @@ const Register = () => {
     </Button>
   </Form>
   </div>
+
   )
 }
 
