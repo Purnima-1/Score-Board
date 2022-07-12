@@ -1,19 +1,21 @@
 import React,{useState} from 'react'
-import {Form,Button,FormControl,Container,Row,Col}  from 'react-bootstrap'
+import {Form,Button,FormControl}  from 'react-bootstrap'
 import axios from 'axios'
+//import {useSelector } from 'react-redux'
 const Register = () => {
   const [message,setMessage] = useState('')
+  //const {serverMessage} = useSelector((state) => state.loginSlice)
   let url 
-  if(window.location.href === "http://localhost:3000/"){
+  if(window.location.href === "http://localhost:3000/register"){
     url = "http://localhost:5000/register"
   }
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target),
     formDataObj = Object.fromEntries(formData.entries())
-    // console.log(formDataObj)
-    //const {name,email,password} = formDataObj
-   
+     console.log(formDataObj)
+     console.log(url)
+      
     axios({
       method:"POST",
       url: url,
