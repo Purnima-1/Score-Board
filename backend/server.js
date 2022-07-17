@@ -9,7 +9,8 @@ dotenv.config()
 connectDB()
 const corsOp = {
     origin: "*",
-    methods:['GET','POST','PUT']
+    methods:['GET','POST','PUT'],
+    allowedHeaders: ["Content-Type", "Authorization"],
 }
 app.use(cors(corsOp))
 app.use(express.urlencoded({ extended: true }));

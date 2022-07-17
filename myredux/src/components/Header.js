@@ -11,7 +11,7 @@ const Header = () => {
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   
   <Nav>
-      <Nav.Link><Link to="/signin">Sign In</Link></Nav.Link>
+      <Nav.Link><Link to='/signin'>Sign In</Link></Nav.Link>
       <Nav.Link><Link to='/register'>Register</Link></Nav.Link>
       <Nav.Link><Link to='/scores'>View Final Scores</Link></Nav.Link>
       <Nav.Link><Link to='/chart'>View Chart</Link></Nav.Link>
