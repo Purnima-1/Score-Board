@@ -1,10 +1,10 @@
 const bcrypt = require("bcryptjs")
 const Users = require('../schema/UserModel')
-const generateToken = require("../utils/generateToken")
+const generateToken = require('../utils/generateToken')
 
 exports.register = async (req,res) => {
   const {name,email,password} = req.body 
-  const userExists = await Users.findOne({email})
+    const userExists = await Users.findOne({email})
  if(userExists){
     res.status(409).send({status: 'User already exists'})
     return
@@ -35,8 +35,8 @@ exports.login = async (req,res) => {
     const {email,password} = req.body 
     try{
      const user = await Users.findOne({email})
-     if(user && bcrypt.compareSync(password,user.password)){
-    res.json({
+          if(user && bcrypt.compareSync(password,user.password)){
+          res.json({
         _id: user._id,
         name: user.name,
         email: user.email,

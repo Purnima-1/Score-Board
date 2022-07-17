@@ -45,8 +45,7 @@ const ScoreScreen = () => {
       <div className="container my-5 team2">
         <h2 id="team2">{name1}</h2>
         <Button variant="success" onClick={() => dispatch(increment2())}>
-          Add Scores
-        </Button>
+          Add Scores</Button>
         <Button variant="secondary" onClick={() => dispatch(decrement2())}>
           Less
         </Button>
