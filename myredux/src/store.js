@@ -10,6 +10,6 @@ export default configureStore({
     reducer: {
         counterR:counterReducer,
         actionR: actionReducer,
-        loginSlice: loginSlice
+        loginSlice: loginSlice,
     }
 })

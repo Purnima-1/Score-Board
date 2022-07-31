@@ -35,6 +35,7 @@ exports.login = async (req,res) => {
     const {email,password} = req.body 
     try{
      const user = await Users.findOne({email})
+     console.log(user)
           if(user && bcrypt.compareSync(password,user.password)){
           res.json({
         _id: user._id,

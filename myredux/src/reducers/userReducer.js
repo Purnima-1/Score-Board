@@ -10,10 +10,10 @@ export const loginSlice = createSlice({
     reducers: {
         loginSubmit: (state,action) => {
             state.serverMessage = action.payload
-        },
+             },
         saveToken: (state,action) => {
             state.token = action.payload
-        },
+                    },
         logOut: (state) => {
             state.token = localStorage.removeItem('token')
         }
