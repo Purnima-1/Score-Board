@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {Form,Button,FormControl}  from 'react-bootstrap'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 //import {useSelector } from 'react-redux'
 const Register = () => {
   const [message,setMessage] = useState('')
@@ -30,7 +31,7 @@ const Register = () => {
   return (
     <div className="container my-5">
 <Form onSubmit={handleSubmit}>
-<p className="h4 text-center mb-4">New Account Sign up Please.</p>
+<p className="h4 text-center mb-4">Already have an account? Please <Link to="/signin">login</Link></p>
             <p className="h4 text-center mb-4">{message.status}</p>
     <Form.Group className="mb-3" controlId="formBasicName">
       <Form.Label>Name</Form.Label>

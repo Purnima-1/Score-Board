@@ -4,7 +4,7 @@
 import { Button, Form } from "react-bootstrap";
 import { saveToken, loginSubmit } from "../reducers/userReducer";
 import { useSelector, useDispatch } from "react-redux";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate,Link} from 'react-router-dom'
 import axios from "axios";
 const Signin = () => {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const Signin = () => {
     <>
      <div className="container my-5">
       <Form onSubmit={handleSubmit}>
-       
+      <p className="h4 text-center mb-4">Not signed up? Please <Link to= "/register">register</Link></p>
           {serverMessage ? (
             <div className="alert alert-warning mb-0 p-2" role="alert">
               {serverMessage}
